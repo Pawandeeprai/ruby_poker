@@ -3,30 +3,6 @@ require_relative 'player.rb'
 require_relative 'card.rb'
 
 class Hand
-  card_values = Hash.new{
-    2 => 2,
-    3 => 3,
-    4 => 4,
-    5 => 5,
-    6 => 6,
-    7 => 7,
-    8 => 8,
-    9 => 9,
-    10 => 10,
-    :J => 11,
-    :Q => 12,
-    :K => 13,
-    :A => 14
-  }
-  #Straight Flsuh - Straight && Flush
-  #Four of a kind
-  #Full House - Two of a kind && three of a kind
-  #Flush - All same suit
-  #Straight - In order
-  #Three of a kind
-  #Two Pair - Two of akind && two of a kind
-  #One pair
-  #High Card
 
   def initialize(cards)
     @cards = cards
@@ -67,7 +43,7 @@ class Hand
 
 
   def four_kind(hash)
-    return true hash.values.include?(4)
+    return true if hash.values.include?(4)
   end
 
   def sames_hash

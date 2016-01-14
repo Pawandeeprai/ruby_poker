@@ -2,8 +2,8 @@ require 'rspec'
 require 'hand.rb'
 
 describe Hand do
-  a = Card.new()
-  subject(:hand) {Hand.new(cards)}
+  a = Card.new("suit", "value")
+  subject(:hand) {Hand.new(a)}
 
   it "takes an array of cards" do
 

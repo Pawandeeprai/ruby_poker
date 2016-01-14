@@ -16,14 +16,20 @@ attr_reader :name, :bank, :fold, :hand
 
   def bet(last_bet = 0)
     amount = 0
-    
-    until amount > last_bet || @fold == true
-      puts "Would you like to bet or fold? Minimum bet is #{last_bet}"
-      amount = gets.chomp.to_s
-      folds if amount == "fold"
-      amount = amount.to_i unless @fold
+    player_input = nil
+    until player_input == "yes" || player_input == "no"
+      puts "the last bet was #{last_bet}.  Would you like to fold?"
+      player_input = gets.chomp.to_s
     end
-  end
+
+    folds if player_input == yes
+
+    until amount > last_bet || @fold == true
+      puts "What would you like to bet? Minimum bet is #{last_bet}"
+
+      amount = gets.chomp.to_i
+    end
+
 
     @bank -= amount
     amount
